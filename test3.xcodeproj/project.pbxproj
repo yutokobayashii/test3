@@ -17,6 +17,9 @@
 		8E54BF9B27858B8F00F03DD8 /* test3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54BF9A27858B8F00F03DD8 /* test3Tests.swift */; };
 		8E54BFA527858B8F00F03DD8 /* test3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54BFA427858B8F00F03DD8 /* test3UITests.swift */; };
 		8E54BFA727858B8F00F03DD8 /* test3UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54BFA627858B8F00F03DD8 /* test3UITestsLaunchTests.swift */; };
+		8E54BFB427858EE700F03DD8 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54BFB327858EE700F03DD8 /* TimeViewController.swift */; };
+		8E54BFB627859F9D00F03DD8 /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54BFB527859F9D00F03DD8 /* NoteDetailViewController.swift */; };
+		8E54BFB82786672700F03DD8 /* NoteTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E54BFB72786672700F03DD8 /* NoteTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		8E54BFA027858B8F00F03DD8 /* test3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E54BFA427858B8F00F03DD8 /* test3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test3UITests.swift; sourceTree = "<group>"; };
 		8E54BFA627858B8F00F03DD8 /* test3UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test3UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8E54BFB327858EE700F03DD8 /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
+		8E54BFB527859F9D00F03DD8 /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
+		8E54BFB72786672700F03DD8 /* NoteTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,9 @@
 				8E54BF8027858B8E00F03DD8 /* AppDelegate.swift */,
 				8E54BF8227858B8E00F03DD8 /* SceneDelegate.swift */,
 				8E54BF8427858B8E00F03DD8 /* ViewController.swift */,
+				8E54BFB72786672700F03DD8 /* NoteTableView.swift */,
+				8E54BFB327858EE700F03DD8 /* TimeViewController.swift */,
+				8E54BFB527859F9D00F03DD8 /* NoteDetailViewController.swift */,
 				8E54BF8627858B8E00F03DD8 /* Main.storyboard */,
 				8E54BF8C27858B8F00F03DD8 /* Assets.xcassets */,
 				8E54BF8E27858B8F00F03DD8 /* LaunchScreen.storyboard */,
@@ -262,9 +271,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E54BF8527858B8E00F03DD8 /* ViewController.swift in Sources */,
+				8E54BFB427858EE700F03DD8 /* TimeViewController.swift in Sources */,
 				8E54BF8B27858B8E00F03DD8 /* test3.xcdatamodeld in Sources */,
 				8E54BF8127858B8E00F03DD8 /* AppDelegate.swift in Sources */,
 				8E54BF8327858B8E00F03DD8 /* SceneDelegate.swift in Sources */,
+				8E54BFB82786672700F03DD8 /* NoteTableView.swift in Sources */,
+				8E54BFB627859F9D00F03DD8 /* NoteDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
