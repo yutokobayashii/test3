@@ -9,6 +9,8 @@
 
 import UIKit
 
+var putdot = true
+
 class TimeViewController: UIViewController {
     
     
@@ -52,7 +54,7 @@ class TimeViewController: UIViewController {
     
     var scheduledTimer: Timer!
     
-    
+
     
     
     
@@ -154,13 +156,15 @@ class TimeViewController: UIViewController {
 
     }
     
-    private func framechar() {
+  func framechar() {
         
         // 枠の調整
            
            goaltextView.layer.borderColor = UIColor.black.cgColor
            
           goaltextView.layer.borderWidth = 0.5
+      
+      goaltextView.layer.cornerRadius = 15
            
            //キーボードに完了のツールバーを作成
                let doneToolbar = UIToolbar()
@@ -170,6 +174,8 @@ class TimeViewController: UIViewController {
                doneToolbar.items = [spacer, doneButton]
                goaltextView.inputAccessoryView = doneToolbar
     }
+    
+    
     
     
     @objc func doneButtonTaped(sender: UIButton) {
@@ -363,9 +369,7 @@ class TimeViewController: UIViewController {
             self.setStartTime(date: Date())
          
             self.startTimer()
-            
-            
-            
+            putdot = false
             
             
           

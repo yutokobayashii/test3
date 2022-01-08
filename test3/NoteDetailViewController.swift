@@ -48,6 +48,11 @@ class NoteDetailViewController: UIViewController {
         titleTF.endEditing(true)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // キーボードを閉じる
+        view.endEditing(true)
+    }
+    
     
     @IBAction func saveAction(_ sender: Any) {
         
