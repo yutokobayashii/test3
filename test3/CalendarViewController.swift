@@ -16,6 +16,8 @@ import RealmSwift
 
 
 
+
+
 class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSource,FSCalendarDelegateAppearance {
    
     
@@ -25,21 +27,21 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
     
     @IBOutlet weak var memoDateLabel: UILabel!
     
-    @IBOutlet weak var memoView: UIView!
+    
+    @IBOutlet weak var memoTextLabel: UILabel!
+    
+    @IBOutlet weak var memoButton: UIButton!
     
     
-    @IBOutlet weak var memoTextView: UITextView!
-    
-    
-    
-    var date: String!
+ //   var date: String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
         
-        framechar()
+        
+        memoButton.layer.cornerRadius = 30
    
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
@@ -47,31 +49,8 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    func framechar() {
-          
-          // 枠の調整
-             
-           memoTextView.layer.borderColor = UIColor.black.cgColor
-             
-            memoTextView.layer.borderWidth = 0.5
-        
-           memoTextView.layer.cornerRadius = 15
-             
-             //キーボードに完了のツールバーを作成
-                 let doneToolbar = UIToolbar()
-                 doneToolbar.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40)
-                let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-                 let doneButton = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(doneButtonTaped))
-                 doneToolbar.items = [spacer, doneButton]
-                memoTextView.inputAccessoryView = doneToolbar
-      }
-    
-    @objc func doneButtonTaped(sender: UIButton) {
-        
-        //キーボード閉じる
-       memoTextView.endEditing(true)
-    
-    }
+  
+ 
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -128,6 +107,7 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         let month = tmpCalendar.component(.month, from: date)
         let day = tmpCalendar.component(.day, from: date)
        
+     
         
         return (year,month,day)
     }
@@ -168,19 +148,57 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
 
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print("test")
-      
+        
         
         let tmpCalendar = Calendar(identifier: .gregorian)
         let year = tmpCalendar.component(.year, from: date)
         let month = tmpCalendar.component(.month, from: date)
         let day = tmpCalendar.component(.day, from: date)
         
-        memoDateLabel.text = "\(year)/\(month)/\(day)"
-    
-        memoView.isHidden = false
+        memoDateLabel.text = String(year) + "/" + String(month) + "/" + String(day)
+      
+        let da = memoDateLabel.text
+        
+        let realm = try! Realm()
+        
+        var result = realm.objects(memoDataModel.self)
+        
+        result = result.filter("date = '\(da!)'")
+        
+        print(result)
+        
+        for daily in result {
+            
+            if daily.date == da {
+                
+                memoTextLabel.text = daily.context
+            }
+        }
+        
+        
+        
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nextVC = segue.destination as? dailyViewController,
+           
+            let inputText = memoDateLabel.text {
+            
+            nextVC.inputText = inputText
+        }
+            
+    }
+    
+    
+    
+   
+    @IBAction func memoButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toDaily", sender: nil)
+        
+    }
+    
+    
     
     //点マークをつける関数
     func calendar(calendar: FSCalendar!, hasEventForDate date: NSDate!) -> Bool {
