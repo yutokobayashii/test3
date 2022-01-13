@@ -28,7 +28,8 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
     @IBOutlet weak var memoDateLabel: UILabel!
     
     
-    @IBOutlet weak var memoTextLabel: UILabel!
+    @IBOutlet weak var memoTextView: UITextView!
+    
     
     @IBOutlet weak var memoButton: UIButton!
     
@@ -39,7 +40,9 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        memoTextView.isUserInteractionEnabled = true
         
+        memoTextView.isEditable = false
         
         memoButton.layer.cornerRadius = 30
    
@@ -150,6 +153,9 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
         
+        memoTextView.text = ""
+        
+        
         let tmpCalendar = Calendar(identifier: .gregorian)
         let year = tmpCalendar.component(.year, from: date)
         let month = tmpCalendar.component(.month, from: date)
@@ -171,13 +177,19 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
             
             if daily.date == da {
                 
-                memoTextLabel.text = daily.context
+                memoTextView.text = daily.context
             }
+            
+            
+            
+                
+            
+        
         }
         
         
         
-        
+      
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -187,9 +199,13 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
             
             nextVC.inputText = inputText
         }
-            
+        
+       
+        
     }
     
+   
+
     
     
    

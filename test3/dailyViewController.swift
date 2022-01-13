@@ -30,7 +30,11 @@ class dailyViewController:UIViewController {
         framechar()
         
         print(Realm.Configuration.defaultConfiguration.fileURL)
+        
+        
     }
+    
+    
     
     
     
@@ -38,6 +42,7 @@ class dailyViewController:UIViewController {
         self.view.endEditing(true)
     }
     
+ 
     
     
     

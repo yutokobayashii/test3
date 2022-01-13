@@ -13,6 +13,7 @@ var putdot = true
 
 class TimeViewController: UIViewController {
     
+
     
     
     
@@ -64,7 +65,9 @@ class TimeViewController: UIViewController {
         
        
       
-  
+       let goal = goalDataModel()
+        
+        print("goal:",goal.goalDate)
   
   
         
@@ -406,6 +409,8 @@ class TimeViewController: UIViewController {
     
     
     @IBAction func setagoal(_ sender: Any) {
+        
+        performSegue(withIdentifier: "toSetting", sender: nil)
        
     }
     

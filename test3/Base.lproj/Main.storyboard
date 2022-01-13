@@ -71,13 +71,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="メモ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rr2-nO-tZr">
-                                <rect key="frame" x="60" y="476" width="295" height="165"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u2z-Cy-XGx" customClass="FSCalendar">
                                 <rect key="frame" x="38" y="97" width="338" height="288"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -100,6 +93,14 @@
                                     <action selector="memoButtonTapped:" destination="bqo-Ji-KfF" eventType="touchUpInside" id="XbZ-rw-AS9"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="X1H-3t-Ow5">
+                                <rect key="frame" x="60" y="458" width="316" height="231"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oIM-rM-RUT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -109,7 +110,7 @@
                         <outlet property="calendar" destination="u2z-Cy-XGx" id="sUH-kl-rTt"/>
                         <outlet property="memoButton" destination="1om-MZ-KtO" id="UZA-tG-UpI"/>
                         <outlet property="memoDateLabel" destination="bQn-rl-8Ps" id="Sh4-yu-Bx6"/>
-                        <outlet property="memoTextLabel" destination="rr2-nO-tZr" id="jB1-Ud-U0u"/>
+                        <outlet property="memoTextView" destination="X1H-3t-Ow5" id="bdN-Ls-z0g"/>
                         <segue destination="yHX-2n-MUt" kind="show" identifier="toDaily" id="42C-1X-Am6"/>
                     </connections>
                 </viewController>
@@ -193,7 +194,7 @@
         <!--timer-->
         <scene sceneID="bKl-70-8Zf">
             <objects>
-                <viewController id="zpl-To-HEL" customClass="TimeViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimeViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zpl-To-HEL" customClass="TimeViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bO-dg-Oth">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,6 +208,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ここに目標を入力してください" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="z4q-UN-03H">
+                                <rect key="frame" x="80" y="228" width="254" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="oV2-RK-jcT"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OPg-bz-Fkj">
                                 <rect key="frame" x="134" y="537.5" width="146" height="185.5"/>
                                 <subviews>
@@ -260,16 +271,6 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ここに目標を入力してください" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="z4q-UN-03H">
-                                <rect key="frame" x="80" y="228" width="254" height="128"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="oV2-RK-jcT"/>
-                                </constraints>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bSZ-sz-I39"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -285,6 +286,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="timer" image="timer" catalog="system" id="OHg-L8-g75"/>
+                    <navigationItem key="navigationItem" id="Hnq-28-Ahv"/>
                     <connections>
                         <outlet property="goaltextView" destination="z4q-UN-03H" id="jHZ-b2-KuW"/>
                         <outlet property="resetButton" destination="jCt-SU-DHZ" id="f09-uy-t8g"/>
@@ -292,16 +294,79 @@
                         <outlet property="startButton" destination="ghi-RH-u1e" id="AL0-E8-9Wm"/>
                         <outlet property="timeLabel" destination="z6Z-tf-FWK" id="0sH-ce-Lku"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toNext" id="FCO-v4-AVb"/>
+                        <segue destination="icL-vF-3gu" kind="showDetail" identifier="toSetting" id="zUO-Mw-ftI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XHG-fG-aQ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1878.2608695652175" y="-1273.6607142857142"/>
+            <point key="canvasLocation" x="-2862.3188405797105" y="-1941.2946428571427"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="2o8-x4-jHL">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="icL-vF-3gu" customClass="settingViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nae-dV-XMu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="目標日時と金額を設定する。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWE-11-AFT">
+                                <rect key="frame" x="72" y="102" width="226" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ルールと注意事項" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJt-QR-Qxe">
+                                <rect key="frame" x="87" y="166" width="139" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7AN-if-9Cg">
+                                <rect key="frame" x="87" y="213" width="240" height="177"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">①設定した目標日数を達成できなかった場合、設定した金額を支払いしていただきます。　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　②もちろん、無料で目標を設定することも可能ですので、金額を設定する場合は、自分の目標に合った金額を設定しましょう。　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　③このアプリを使わずとも禁欲できるように頑張ろう！　
+</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48Y-xf-e6T">
+                                <rect key="frame" x="260" y="409" width="67" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="送信">
+                                            <attributes>
+                                                <font key="NSFont" size="20" name="HiraginoSans-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="settingSaveButtonTapped:" destination="icL-vF-3gu" eventType="touchUpInside" id="bTI-Zc-9pZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SOs-bo-Nq3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <segue destination="jEs-mS-sZJ" kind="show" identifier="toGoal" id="xqJ-lN-TYV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8HC-6m-DQm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1920.289855072464" y="-1941.2946428571427"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="07e-PT-xoO">
             <objects>
-                <tabBarController id="21H-o8-Jvt" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="toMain" modalPresentationStyle="fullScreen" id="21H-o8-Jvt" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="p05-dv-zKh"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SQn-wg-qiC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -315,7 +380,74 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrN-1H-hld" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2770" y="-967"/>
+            <point key="canvasLocation" x="-2739" y="-1138"/>
+        </scene>
+        <!--Goal View Controller-->
+        <scene sceneID="H7d-lD-KxL">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="jEs-mS-sZJ" customClass="goalViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9c7-nE-Xcy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H0D-n3-xLq">
+                                <rect key="frame" x="0.0" y="433" width="414" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="金額を設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNo-Sw-ak2">
+                                <rect key="frame" x="48" y="404" width="87" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqc-p1-TgQ">
+                                <rect key="frame" x="291" y="674" width="66" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="送信">
+                                            <attributes>
+                                                <font key="NSFont" size="21" name="HiraginoSans-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="tappedGoalSendButton:" destination="jEs-mS-sZJ" eventType="touchUpInside" id="6OH-Ex-IDN"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="目標日時を設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04K-CP-J3m">
+                                <rect key="frame" x="48" y="142" width="170" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rie-UB-oOW">
+                                <rect key="frame" x="96" y="217" width="190" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="haM-GE-scE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="z82-Vt-iOb"/>
+                    <connections>
+                        <outlet property="goalDateLabel" destination="04K-CP-J3m" id="7Sm-pP-7SJ"/>
+                        <outlet property="goalMoneyLabel" destination="LNo-Sw-ak2" id="CcL-Am-RIj"/>
+                        <outlet property="goalPickerView" destination="H0D-n3-xLq" id="pVo-n7-FoO"/>
+                        <outlet property="goalSendButton" destination="eqc-p1-TgQ" id="CN3-eD-QLD"/>
+                        <outlet property="goalTextField" destination="rie-UB-oOW" id="KE3-fb-EIO"/>
+                        <segue destination="21H-o8-Jvt" kind="show" identifier="toMain" id="OiN-gR-E65"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e0K-sL-rmC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-854" y="-1941"/>
         </scene>
         <!--Note Detail View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -394,7 +526,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1088.4057971014493" y="-1274.3303571428571"/>
+            <point key="canvasLocation" x="-1468" y="-1138"/>
         </scene>
     </scenes>
     <resources>
