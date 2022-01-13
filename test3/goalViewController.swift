@@ -13,7 +13,7 @@ let moneyList = [
     "300円","1000円","3000円","5000円","10000円"
 ]
 
-
+   var goal = goalDataModel()
 
 
 class goalViewController:UIViewController   {
@@ -92,6 +92,13 @@ class goalViewController:UIViewController   {
            
            goalDateLabel.text = "\(formatter.string(from: datePicker.date))"
            
+           goal.goalDate = goalDateLabel.text!
+           
+           print("goalDate:", goal.goalDate)
+           
+           UserDefaults.standard.set(goal.goalDate, forKey: "date")
+           
+           
            goalTextField.endEditing(true)
        }
     
@@ -128,6 +135,12 @@ extension goalViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         goalMoneyLabel.text = moneyList[row]
+        
+        goal.goalmoney = goalMoneyLabel.text!
+        
+        print("goalMoney:", goal.goalmoney)
+        
+        UserDefaults.standard.set(goal.goalmoney, forKey: "money")
    
     }
     

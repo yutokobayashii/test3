@@ -17,8 +17,10 @@ class TimeViewController: UIViewController {
     
     
     
-    @IBOutlet weak var goaltextView: UITextView!
+  
+    @IBOutlet weak var goalDateLabel: UILabel!
     
+    @IBOutlet weak var goalMoneyLabel: UILabel!
     
     
     
@@ -67,7 +69,18 @@ class TimeViewController: UIViewController {
       
        let goal = goalDataModel()
         
-        print("goal:",goal.goalDate)
+       let date = UserDefaults.standard.string(forKey: "date")
+        
+        let money = UserDefaults.standard.string(forKey: "money")
+        
+        print("date:",date!)
+        print("money:",money!)
+        
+        goalDateLabel.text = date
+        
+        goalMoneyLabel.text = money
+        
+        
   
   
         
@@ -96,10 +109,9 @@ class TimeViewController: UIViewController {
         
        
         
-   buttonchar()
-   framechar()
+  
    userdef()
-        
+   buttonchar()
         
         
         
@@ -108,9 +120,8 @@ class TimeViewController: UIViewController {
     }
     
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
+   
+   
     
     private func buttonchar() {
         
@@ -144,9 +155,6 @@ class TimeViewController: UIViewController {
         
         //userdefaults読み込み、出力
         
-      let savedata =  UserDefaults.standard.string( forKey: "goaltextview")
-        
-        goaltextView.text = savedata
         
         let savedata1 = UserDefaults.standard.string(forKey: "timeView")
         
@@ -159,40 +167,11 @@ class TimeViewController: UIViewController {
 
     }
     
-  func framechar() {
-        
-        // 枠の調整
-           
-           goaltextView.layer.borderColor = UIColor.black.cgColor
-           
-          goaltextView.layer.borderWidth = 0.5
-      
-      goaltextView.layer.cornerRadius = 15
-           
-           //キーボードに完了のツールバーを作成
-               let doneToolbar = UIToolbar()
-               doneToolbar.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40)
-              let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-               let doneButton = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(doneButtonTaped))
-               doneToolbar.items = [spacer, doneButton]
-               goaltextView.inputAccessoryView = doneToolbar
-    }
+ 
     
     
     
-    
-    @objc func doneButtonTaped(sender: UIButton) {
-        
-        //キーボード閉じる
-        goaltextView.endEditing(true)
-        
-        //userdefaults保存
-      guard let text = goaltextView.text else {return}
-        
-       UserDefaults.standard.set(text, forKey: "goaltextview")
-        
-    
-    }
+  
     
     
     

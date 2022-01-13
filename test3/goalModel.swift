@@ -13,4 +13,6 @@ struct goalDataModel {
    var goalDate = ""
     
    var goalmoney = ""
+    
 }
+//userdefで保存
