@@ -29,6 +29,9 @@
 		8E6A89DB278EBF5F00088DC9 /* goalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6A89DA278EBF5F00088DC9 /* goalViewController.swift */; };
 		8E770D61278D9EA50010F037 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E770D60278D9EA50010F037 /* settingViewController.swift */; };
 		8E965A74278AED1D0039590B /* dailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E965A73278AED1D0039590B /* dailyViewController.swift */; };
+		8ECDEEF9279286560088CD2D /* achivedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDEEF8279286560088CD2D /* achivedViewController.swift */; };
+		8ECDEEFB2792872C0088CD2D /* 44487-presente.json in Resources */ = {isa = PBXBuildFile; fileRef = 8ECDEEFA2792872B0088CD2D /* 44487-presente.json */; };
+		8ECDEF012792BA750088CD2D /* 88298-let-t-snow-beautiful-christmas-snow.json in Resources */ = {isa = PBXBuildFile; fileRef = 8ECDEF002792BA750088CD2D /* 88298-let-t-snow-beautiful-christmas-snow.json */; };
 		97E5ACA65084892B6950B9FA /* Pods_test3_test3UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F12109B823D0C2B4D36210 /* Pods_test3_test3UITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +83,9 @@
 		8E6A89DA278EBF5F00088DC9 /* goalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goalViewController.swift; sourceTree = "<group>"; };
 		8E770D60278D9EA50010F037 /* settingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
 		8E965A73278AED1D0039590B /* dailyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dailyViewController.swift; sourceTree = "<group>"; };
+		8ECDEEF8279286560088CD2D /* achivedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = achivedViewController.swift; sourceTree = "<group>"; };
+		8ECDEEFA2792872B0088CD2D /* 44487-presente.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "44487-presente.json"; path = "../../../Downloads/44487-presente.json"; sourceTree = "<group>"; };
+		8ECDEF002792BA750088CD2D /* 88298-let-t-snow-beautiful-christmas-snow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "88298-let-t-snow-beautiful-christmas-snow.json"; path = "../../../Downloads/88298-let-t-snow-beautiful-christmas-snow.json"; sourceTree = "<group>"; };
 		C5FBF8184AFE718E0909F4F5 /* Pods-test3-test3UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test3-test3UITests.release.xcconfig"; path = "Target Support Files/Pods-test3-test3UITests/Pods-test3-test3UITests.release.xcconfig"; sourceTree = "<group>"; };
 		EE5EB401DB63CBBE9148DB2A /* Pods-test3Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test3Tests.debug.xcconfig"; path = "Target Support Files/Pods-test3Tests/Pods-test3Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		FBC051578DFCAFEF505626D3 /* Pods-test3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test3.release.xcconfig"; path = "Target Support Files/Pods-test3/Pods-test3.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,9 +179,12 @@
 				8E4447D9278F8F61001A8082 /* goalModel.swift */,
 				8E770D60278D9EA50010F037 /* settingViewController.swift */,
 				8E6A89DA278EBF5F00088DC9 /* goalViewController.swift */,
+				8ECDEEF8279286560088CD2D /* achivedViewController.swift */,
 				8E54BF8627858B8E00F03DD8 /* Main.storyboard */,
 				8E54BF8C27858B8F00F03DD8 /* Assets.xcassets */,
 				8E54BF8E27858B8F00F03DD8 /* LaunchScreen.storyboard */,
+				8ECDEF002792BA750088CD2D /* 88298-let-t-snow-beautiful-christmas-snow.json */,
+				8ECDEEFA2792872B0088CD2D /* 44487-presente.json */,
 				8E6A89D8278E9D9D00088DC9 /* 74216-animated-flames.json */,
 				8E54BF9127858B8F00F03DD8 /* Info.plist */,
 				8E54BF8927858B8E00F03DD8 /* test3.xcdatamodeld */,
@@ -310,8 +319,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E54BF9027858B8F00F03DD8 /* LaunchScreen.storyboard in Resources */,
+				8ECDEF012792BA750088CD2D /* 88298-let-t-snow-beautiful-christmas-snow.json in Resources */,
 				8E54BF8D27858B8F00F03DD8 /* Assets.xcassets in Resources */,
 				8E54BF8827858B8E00F03DD8 /* Main.storyboard in Resources */,
+				8ECDEEFB2792872C0088CD2D /* 44487-presente.json in Resources */,
 				8E6A89D9278E9D9D00088DC9 /* 74216-animated-flames.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E965A74278AED1D0039590B /* dailyViewController.swift in Sources */,
+				8ECDEEF9279286560088CD2D /* achivedViewController.swift in Sources */,
 				8E54BFE32786B45D00F03DD8 /* CalendarViewController.swift in Sources */,
 				8E54BF8527858B8E00F03DD8 /* ViewController.swift in Sources */,
 				8E54BFE72787C7D200F03DD8 /* memoDataModel.swift in Sources */,

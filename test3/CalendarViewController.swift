@@ -217,9 +217,9 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
     
     
     //点マークをつける関数
-    func calendar(calendar: FSCalendar!, hasEventForDate date: NSDate!) -> Bool {
-        return putdot
-    }
+  //  func calendar(calendar: FSCalendar!, hasEventForDate date: NSDate!) -> Bool {
+   //     return putdot
+ //   }
     
     
     }

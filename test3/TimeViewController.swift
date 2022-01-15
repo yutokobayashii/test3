@@ -8,12 +8,18 @@
 
 
 import UIKit
+import Lottie
 
-var putdot = true
+
+
+
+
+
+
 
 class TimeViewController: UIViewController {
     
-
+    var animationView = AnimationView()
     
     
     
@@ -58,34 +64,14 @@ class TimeViewController: UIViewController {
     var scheduledTimer: Timer!
     
 
-    
-    
+  
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        
       
-       let goal = goalDataModel()
-        
-       let date = UserDefaults.standard.string(forKey: "date")
-        
-        let money = UserDefaults.standard.string(forKey: "money")
-        
-        print("date:",date!)
-        print("money:",money!)
-        
-        goalDateLabel.text = date
-        
-        goalMoneyLabel.text = money
-        
-        
-  
-  
-        
-        
-        
           
         startTime = userdefaults.object(forKey: START_TIME_KEY) as? Date
         stopTime = userdefaults.object(forKey: STOP_TIME_KEY) as? Date
@@ -103,6 +89,7 @@ class TimeViewController: UIViewController {
                     let time = calcRestartTime(start: start, stop: stop)
                     let diff = Date().timeIntervalSince(time)
                     setTimeLabel(Int(diff))
+                 
                 }
             }
         }
@@ -112,10 +99,56 @@ class TimeViewController: UIViewController {
   
    userdef()
    buttonchar()
-        
-        
+   goalsetting()
+    
         
     
+        
+    }
+
+    
+    
+    func goalStatus() -> Bool {
+        //目標設定済みか否かの確認
+        let goalstatus = UserDefaults.standard.bool(forKey: "bool")
+        
+        if goalstatus {
+            
+            print("goalstatus:success")
+            
+            return true
+        } else {
+            
+            print("goalstatus; failed")
+            
+            return false
+        }
+    }
+    
+    
+    func goalsetting() {
+     
+        if goalStatus() {
+          
+         let date = UserDefaults.standard.string(forKey: "date")
+          
+          let money = UserDefaults.standard.string(forKey: "money")
+          
+          print("date:",date!)
+          print("money:",money!)
+          
+          goalDateLabel.text = date
+          
+          goalMoneyLabel.text = money
+            
+     
+            
+            
+        } else  {
+            
+            goalDateLabel.text = "未設定"
+            goalMoneyLabel.text = "未設定"
+        }
         
     }
     
@@ -162,6 +195,8 @@ class TimeViewController: UIViewController {
         timeLabel.text = savedata1
         
      //   reset.text =  UserDefaults.standard.string(forKey: "ct")
+        
+        
         
     
 
@@ -231,10 +266,12 @@ class TimeViewController: UIViewController {
         {
             let diff = Date().timeIntervalSince(start)
             setTimeLabel(Int(diff))
+         
         }
         else {
             stopTimer()
             setTimeLabel(0)
+          
         }
         
     }
@@ -247,6 +284,8 @@ class TimeViewController: UIViewController {
         timeLabel.text = timeString
         
     }
+    
+ 
     
     func secondsToHourMinutesSeconds(_ ms: Int) -> (Int, Int, Int, Int) {
         
@@ -283,9 +322,16 @@ class TimeViewController: UIViewController {
         timeString += String(format: "%02d", sec)
         timeString += "秒"
         
+        
+        //比較用
+        UserDefaults.standard.set(day, forKey: "day")
+        
         return timeString
         
     }
+    
+
+    
     
     
     
@@ -341,19 +387,112 @@ class TimeViewController: UIViewController {
             (action: UIAlertAction!) -> Void in
             //実際の処理
             
-            self.performSegue(withIdentifier: "toNext", sender: nil)
             
-            self.setStopTime(date: nil)
-            self.setStartTime(date: nil)
-            self.timeLabel.text = self.makeTimeString(day: 0, hour: 0, min: 0, sec: 0)
-            self.stopTimer()
+          
             
-            self.setStartTime(date: Date())
-         
-            self.startTimer()
-            putdot = false
+            if self.goalStatus() {
+                
+                
+             
+                   
+           
+               
+              
+                //目標が設定済みだった場合
+                
+          
+                let dayRecode = UserDefaults.standard.integer(forKey: "day")
+                
+                let dayGoal = UserDefaults.standard.integer(forKey: "diff")
+                
+     
+                print("recode:",dayRecode)
+                print("goal:",dayGoal)
+                 
+               //目標が設定済みで合った場合でかつ、目標達成した場合
+               
+                if dayRecode >= dayGoal {
+                    
+                    print("目標達成！")
+                    
+                    UserDefaults.standard.set(self.timeLabel.text, forKey: "time")
+                    
+                    self.performSegue(withIdentifier: "toAchived", sender: nil)
+                    
+                    self.setStopTime(date: nil)
+                    self.setStartTime(date: nil)
+                    self.timeLabel.text = self.makeTimeString(day: 0, hour: 0, min: 0, sec: 0)
+                    self.stopTimer()
+                    
+                    self.setStartTime(date: Date())
+                 
+                    self.startTimer()
+                    
+                    let  memo = memoDataModel()
+                    
+                    memo.date = "未設定"
+                    memo.context = "未設定"
+                    
+                    UserDefaults.standard.set(memo.date, forKey: "date")
+                    UserDefaults.standard.set(memo.context, forKey: "money")
+                    
+                    UserDefaults.standard.set(false, forKey: "bool")
+                }
+                
+               //目標が設定済みでかつ、目標未達成だった場合
+                else {
+                    
+                    UserDefaults.standard.set(self.timeLabel.text, forKey: "time")
+                    
+                  
+                    
+                    self.setStopTime(date: nil)
+                    self.setStartTime(date: nil)
+                    self.timeLabel.text = self.makeTimeString(day: 0, hour: 0, min: 0, sec: 0)
+                    self.stopTimer()
+                    
+                    self.setStartTime(date: Date())
+                 
+                    self.startTimer()
+                    
+                    let  memo = memoDataModel()
+                    
+                    memo.date = "未設定"
+                    memo.context = "未設定"
+                    
+                    UserDefaults.standard.set(memo.date, forKey: "date")
+                    UserDefaults.standard.set(memo.context, forKey: "money")
+                    UserDefaults.standard.set(false, forKey: "bool")
+                    //ここに課金実装
+                    
+                    print("目標未達成")
+                }
+                
+           
             
-            
+            } else {
+                
+                //目標が未設定だった場合
+                self.performSegue(withIdentifier: "toNext", sender: nil)
+                
+                    self.setStopTime(date: nil)
+                    self.setStartTime(date: nil)
+                    self.timeLabel.text = self.makeTimeString(day: 0, hour: 0, min: 0, sec: 0)
+                    self.stopTimer()
+                    
+                    self.setStartTime(date: Date())
+                 
+                    self.startTimer()
+                UserDefaults.standard.set(false, forKey: "bool")
+              
+                
+                
+                
+             
+                
+                
+                
+            }
           
             
             
@@ -389,22 +528,25 @@ class TimeViewController: UIViewController {
     
     @IBAction func setagoal(_ sender: Any) {
         
-        performSegue(withIdentifier: "toSetting", sender: nil)
+        if goalStatus() {
+            
+            performSegue(withIdentifier: "toSetting", sender: nil)
+            
+            setagoalButton.isEnabled = false
+           
+           
+            
+        } else {
+            
+            performSegue(withIdentifier: "toSetting", sender: nil)
+        }
        
     }
     
     
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-          if let NoteDetailVC = segue.destination as? NoteDetailViewController,
-        let inputText: String = timeLabel.text {
-
-               // 遷移先のViewControllerに文字列を渡す
-                    NoteDetailVC.inputText = inputText
-           }
-        }
+    
     
     func setStartTime(date: Date?) {
         

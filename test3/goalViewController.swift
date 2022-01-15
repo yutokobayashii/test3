@@ -10,7 +10,7 @@ import UIKit
 
 let moneyList = [
 
-    "300円","1000円","3000円","5000円","10000円"
+    "無料","300円","1000円","3000円","5000円","10000円"
 ]
 
    var goal = goalDataModel()
@@ -58,10 +58,13 @@ class goalViewController:UIViewController   {
     func datePickerControl() {
            
         // ピッカー設定
+        
                 datePicker.datePickerMode = UIDatePicker.Mode.date
                 datePicker.timeZone = NSTimeZone.local
                 datePicker.locale = Locale.current
                 goalTextField.inputView = datePicker
+        
+        datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: 0, to: Date())
 
                 // 決定バーの生成
                 let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
@@ -78,25 +81,49 @@ class goalViewController:UIViewController   {
        @objc func done() {
               
 
-              // 日付のフォーマット
-              let formatter = DateFormatter()
-
-              //"yyyy年MM月dd日"を"yyyy/MM/dd"したりして出力の仕方を好きに変更できるよ
-              formatter.dateFormat = "yyyy年MM月dd日"
+      
            
-        
            
-          
+               //画面表示用
+               let formatter = DateFormatter()
+           
+                formatter.dateFormat = "yyyy年MM月dd日"
+       
            
            goalTextField.text = "\(formatter.string(from: datePicker.date))"
            
            goalDateLabel.text = "\(formatter.string(from: datePicker.date))"
            
+       
+           
+           let differ = Int(datePicker.date.timeIntervalSinceNow)//　小数点位置直す
+           
+           let diff = ceil(Double(differ / 86400))
+           
+           print("diff",diff / 86400)
+           
+           UserDefaults.standard.set(diff, forKey: "diff")
+          
+         
+        
+           
+       
+       
+           
+    
+           
            goal.goalDate = goalDateLabel.text!
+           
+           
+    
            
            print("goalDate:", goal.goalDate)
            
            UserDefaults.standard.set(goal.goalDate, forKey: "date")
+           
+           
+           
+           
            
            
            goalTextField.endEditing(true)
@@ -106,10 +133,17 @@ class goalViewController:UIViewController   {
     
     @IBAction func tappedGoalSendButton(_ sender: Any) {
         
+   
+        
+        
+        
+        UserDefaults.standard.set(true, forKey: "bool")
+        
     performSegue(withIdentifier: "toMain", sender: nil)
         
-    //TimeVCに表示したい。
-    //userdefが使えるかも
+        
+        
+  
     }
     
     

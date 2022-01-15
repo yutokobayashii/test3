@@ -25,7 +25,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3f-CM-kWb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3672" y="-156"/>
+            <point key="canvasLocation" x="-3881" y="-150"/>
         </scene>
         <!--Note Table View-->
         <scene sceneID="59M-Wm-Ff9">
@@ -61,7 +61,7 @@
             <objects>
                 <viewController storyboardIdentifier="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bqo-Ji-KfF" customClass="CalendarViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tOM-kf-RzM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0000/00/00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQn-rl-8Ps">
@@ -311,6 +311,7 @@
                         <outlet property="timeLabel" destination="z6Z-tf-FWK" id="0sH-ce-Lku"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toNext" id="FCO-v4-AVb"/>
                         <segue destination="icL-vF-3gu" kind="showDetail" identifier="toSetting" id="zUO-Mw-ftI"/>
+                        <segue destination="sjM-pa-hpA" kind="showDetail" identifier="toAchived" id="tqz-tt-ccA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XHG-fG-aQ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -378,6 +379,22 @@
             </objects>
             <point key="canvasLocation" x="-1920.289855072464" y="-1941.2946428571427"/>
         </scene>
+        <!--ex-->
+        <scene sceneID="cmb-mf-Ctv">
+            <objects>
+                <viewController id="zog-tv-05c" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="htF-ga-qwv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Ed9-4k-03F"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="ex" image="exclamationmark.triangle.fill" catalog="system" id="yxm-bu-mXt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GPv-vt-53r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5092" y="-1140"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="07e-PT-xoO">
             <objects>
@@ -392,11 +409,54 @@
                         <segue destination="zpl-To-HEL" kind="relationship" relationship="viewControllers" id="EZ5-0Y-8p1"/>
                         <segue destination="bqo-Ji-KfF" kind="relationship" relationship="viewControllers" id="QjS-Te-EyL"/>
                         <segue destination="pwg-da-R30" kind="relationship" relationship="viewControllers" id="t9k-Aj-nEE"/>
+                        <segue destination="zog-tv-05c" kind="relationship" relationship="viewControllers" id="LhL-PH-bdj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrN-1H-hld" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2739" y="-1138"/>
+            <point key="canvasLocation" x="-3881" y="-1150"/>
+        </scene>
+        <!--Achived View Controller-->
+        <scene sceneID="C2d-EN-MYr">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="sjM-pa-hpA" customClass="achivedViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4gC-lX-Z4i">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="目標達成おめでとうございます。　　　　　　" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mb3-l4-X0E">
+                                <rect key="frame" x="48" y="109" width="323" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="※この画面は自動的に遷移します。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7r-hF-hja">
+                                <rect key="frame" x="86" y="183" width="243" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="この調子で今後も目標達成できるように頑張りましょう！　　　　　　　　　もしこのアプリを気に入っていただけましたらappstoreにてレビューをお願いします。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2L0-ze-y9f">
+                                <rect key="frame" x="48" y="551" width="323" height="135"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="41H-qw-Ngb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="toNext1" id="xtJ-np-vcg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pe3-OV-HXa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2412" y="-1150"/>
         </scene>
         <!--Goal View Controller-->
         <scene sceneID="H7d-lD-KxL">
@@ -538,16 +598,22 @@
                     <connections>
                         <outlet property="timerLabel2" destination="brF-sQ-jEW" id="LgC-PU-yyq"/>
                         <outlet property="titleTF" destination="Tr8-bl-eql" id="qoH-lY-GNR"/>
+                        <segue destination="21H-o8-Jvt" kind="showDetail" identifier="toNext2" id="KCh-yx-1mg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1468" y="-1138"/>
+            <point key="canvasLocation" x="-1222" y="-1150"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xtJ-np-vcg"/>
+        <segue reference="KCh-yx-1mg"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="doc.on.clipboard.fill" catalog="system" width="116" height="128"/>
+        <image name="exclamationmark.triangle.fill" catalog="system" width="128" height="112"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="timer" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">

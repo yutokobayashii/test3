@@ -17,7 +17,7 @@ class NoteDetailViewController: UIViewController {
     
     @IBOutlet weak var timerLabel2: UILabel!
     
-    var inputText: String = ""
+ 
     
 
     override func viewDidLoad() {
@@ -29,8 +29,8 @@ class NoteDetailViewController: UIViewController {
         
         titleTF.layer.borderWidth = 0.5
         
-       
-        timerLabel2.text = inputText
+        let time = UserDefaults.standard.string(forKey: "time")
+        timerLabel2.text = time
         
         //キーボードに完了のツールバーを作成
             let doneToolbar = UIToolbar()
@@ -120,8 +120,7 @@ class NoteDetailViewController: UIViewController {
                
         
        
-      
-        self.dismiss(animated: true, completion: nil)
+      performSegue(withIdentifier: "toNext2", sender: nil)
         
         
         
