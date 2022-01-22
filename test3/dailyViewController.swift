@@ -31,7 +31,12 @@ class dailyViewController:UIViewController {
         
         print(Realm.Configuration.defaultConfiguration.fileURL)
         
+        saveButton.layer.cornerRadius = 5
         
+        returnButton.layer.cornerRadius = 5
+        
+        
+    
     }
     
     

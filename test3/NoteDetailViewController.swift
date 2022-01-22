@@ -18,10 +18,13 @@ class NoteDetailViewController: UIViewController {
     @IBOutlet weak var timerLabel2: UILabel!
     
  
+    @IBOutlet weak var goButton: UIButton!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        goButton.layer.cornerRadius = 15
         
         //枠の調整
         
@@ -80,7 +83,7 @@ class NoteDetailViewController: UIViewController {
         
         let brank: String = "                                                                 "
         
-        let record: String = timerLabel2.text!
+        let record: String = timerLabel2.text ?? "測定失敗"
          
         let brank2: String = "                                                     "
         

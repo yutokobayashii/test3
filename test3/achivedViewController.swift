@@ -6,11 +6,10 @@
 //
 
 import UIKit
-import Lottie
+
 
 class achivedViewController :UIViewController {
-    
-    var animationView = AnimationView()
+
     
     var timer:Timer = Timer()
     
@@ -18,9 +17,9 @@ class achivedViewController :UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addAnimationView()
+   
         
-        timer = Timer.scheduledTimer(timeInterval: 6.5,  target: self, selector: #selector(changeView), userInfo: nil,repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 4.5,  target: self, selector: #selector(changeView), userInfo: nil,repeats: false)
                                                                                 
                                                                     
                                                            
@@ -33,22 +32,7 @@ class achivedViewController :UIViewController {
    
    
     
-    func addAnimationView() {
-        
-        //アニメーションのファイルの指定
-        
-        animationView = AnimationView(name: "44487-presente")
-        
-       
-        animationView.frame = CGRect(x: 60, y: 220, width: 300, height: 300)
-        
-        animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .loop
-        animationView.play()
-        
-        view.addSubview(animationView)
-    }
-    
+  
     
 }
 

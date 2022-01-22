@@ -22,6 +22,13 @@ class NoteTableView: UITableViewController {
         tableView.delegate = self
         
         navigationItem.title = "原因と解決策"
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            // 文字の色
+            .foregroundColor: UIColor.systemTeal
+            ]
+      
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +54,8 @@ class NoteTableView: UITableViewController {
         
         return cell
     }
+    
+  
     
     func getData() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

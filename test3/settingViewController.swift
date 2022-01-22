@@ -6,45 +6,35 @@
 //
 
 import UIKit
-import Lottie
+
 
 
 class settingViewController:UIViewController {
     
     
-    var animationView = AnimationView()
+    @IBOutlet weak var settingButton: UIButton!
     
     
   
+    @IBOutlet weak var settingTextView: UITextView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         addAnimationView()
+        settingButton.layer.cornerRadius = 15
+        
        
-  
+        settingTextView.isUserInteractionEnabled = false
+        
+        
      
     }
     
     
   
     
-    func addAnimationView() {
-        
-        //アニメーションのファイルの指定
-        
-        animationView = AnimationView(name: "74216-animated-flames")
-        
-       
-        animationView.frame = CGRect(x: 60, y: 470, width: 300, height: 300)
-        
-        animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .loop
-        animationView.play()
-        
-        view.addSubview(animationView)
-    }
+    
     
    
     

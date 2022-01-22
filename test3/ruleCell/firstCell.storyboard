@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Firse Cell View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="firseCellViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="firseCellViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OdJ-c6-AHK">
+                                <rect key="frame" x="15" y="265" width="384" height="559"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text" base64-UTF8="YES">
+5LuK44CB5aSa44GP44Gu54++5Luj5Lq644GM5oqx44GI44Gm44GE44KL4oCd44KE44KB44Gf44GE44GR
+44Gp44KE44KB44KJ44KM44Gq44GE44K544OI44Os44K54oCd44Gv44Gp44KT44Gp44KT5Yui5Yqb44KS
+5ouh5aSn44GX44Gm5oiR44CF44Gr54yb5aiB44KS5aWu44Gj44Gm44GE44G+44GZ44CCEQ0NCueUmOOD
+vOOBhOegguezluOBn+OBo+OBt+OCiuOBruODh+OCtuODvOODiOOChOOCuOODpeODvOOCueOAgeWFqOOB
+puOCkuW/mOOCjOOBleOBm+OBpuOBj+OCjOOCi+mFkuOAgeOCv+ODkOOCs+OAgeawl+OBpeOBhOOBn+aZ
+guOBq+OBr+OChOOCgeOCieOCjOOBquOBhOOCruODo+ODs+ODluODq+OAgemtheWKm+eahOOBquOCueOC
+v+OCpOODq+OBp+iqmOaDkeOBmeOCi+WumOiDveeahOOBquOCuOODo+ODs+OCr+ODneODq+ODjuOAgeaw
+uOmBoOOBq+aZgumWk+OCkuWlquOCj+OCjOOCi+ODjeODg+ODiOOCteODvOODleOCo+ODs+OAghHigKgN
+CuOCguOBoeOCjeOCk+S4iuiomOOBrue/kuaFo+OBjOS4gOaWueeahOOBq+aCquOBhOOBqOiogOOBhOOB
+n+OBhOOCj+OBkeOBp+OBr+OBguOCiuOBvuOBm+OCk+OAggrjgZPjgozjgonjga7nv5LmhaPjgpLnnJ/j
+gavmsJfjgavlhaXjgaPjgabjgYTjgovjga7jgafjgYLjgozjgbDjgIHjgoTjgoHjgovlv4XopoHjgarj
+ganjgarjgYTjgajmgJ3jgYTjgb7jgZnjgIIK5pys5b2T44Gr5ZWP6aGM44Gq44Gu44Gv44KE44KB44Gf
+44GE44GR44Gp44KE44KB44KM44Gq44GE44Go44GE44GG54q25oWL44Gd44Gu44KC44Gu44Gr44GC44KL
+44Gu44Gn44Gv44Gq44GE44Gn44GX44KH44GG44GL77yfCuiHquWIhuOBq+OBqOOBo+OBpuOBruaCque/
+kuaFo+OBr+OAgeOBneOCjOOCkuOBk+OBquOBmeW6puOBq+OAgeOBguOBquOBn+OBruiHquW3seiCr+Wu
+muaEn+OCkuS9juS4i+OBleOBm+OAgeWkmuOBj+OBruaCquW9semfv+OBjOOBguOCi+OBruOBr+OCguOB
+r+OChOiqrOaYjuOBmeOCi+W/heimgeOBmeOCieOBquOBhOOBqOaEn+OBmOOBpuOBhOOBvuOBmeOAggrj
+gb7jgZ/jgIHmlrDjgZ/jgarnv5LmhaPjgpLlp4vjgoHjgovpmpvjgavjga/jgIHku4rjgb7jgafjga7n
+hKHpp4Tjgarnv5LmhaPjgpLmuJvjgonjgZnjgajjgYTjgYbjga7jgYzlrp/jga/mnIDjgoLph43opoHj
+gaDjgajogIPjgYjjgIHnv5LmhaPjgpLjgoTjgoHjgovjgZPjgajjgavjg5Xjgqnjg7zjgqvjgrnjgZfj
+gZ/jgqLjg5fjg6rjgpLkvZzmiJDjgZfjgb7jgZfjgZ/jgIIK5aiv5qW944Gn5rqi44KM44Gf44GT44Gu
+56S+5Lya44Gn44Gv44CB6Ieq5YiG44Gr44Go44Gj44Gm44Gu5oKq57+S5oWj44KS57W244Gk44GT44Go
+44Gv44Gd44KM6Ieq6Lqr44Gr5aSn44GN44Gq5oSP5ZGz44GM44GC44KL44Go44KC44Om44Or44Oc6KO9
+5L2c44OB44O844Og44Gv6ICD44GI44Gm44GE44G+44GZ44CCCuWwj+OBleOBquS4gOatqeOCkui4j+OB
+v+WHuuOBmeWLh+awl+OBjOS6uueUn+OCkuWkieOBiOOCi+OBruOBi+OCguOBl+OCjOOBvuOBm+OCk+OB
+reOAggrjgZzjgbLjgZPjga7jgqLjg5fjg6rjgafkurrnlJ/lpInjgYjjgovkuIDmranjgpLlhbHjgavo
+uI/jgb/lh7rjgZfjgb7jgZfjgb7jgZfjgofjgYbjgII
+</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="wBF-zv-tNh">
+                                <rect key="frame" x="38" y="109" width="137" height="118"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="137" id="ojt-EJ-xC7"/>
+                                    <constraint firstAttribute="height" constant="118" id="twv-NQ-zzk"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="なりたい自分に大変身！！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygD-iG-UEc">
+                                <rect key="frame" x="183" y="146" width="208" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="OSa-Hq-bJk"/>
+                                    <constraint firstAttribute="width" constant="208" id="Yrt-dT-01o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ygD-iG-UEc" firstAttribute="leading" secondItem="wBF-zv-tNh" secondAttribute="trailing" constant="8" id="6Oa-xn-AWa"/>
+                            <constraint firstItem="wBF-zv-tNh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="65" id="Icq-bZ-XoQ"/>
+                            <constraint firstItem="wBF-zv-tNh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="38" id="MVL-7z-uu8"/>
+                            <constraint firstItem="OdJ-c6-AHK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="Sfy-oF-MZs"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="OdJ-c6-AHK" secondAttribute="bottom" constant="38" id="WQb-f5-cvm"/>
+                            <constraint firstItem="OdJ-c6-AHK" firstAttribute="top" secondItem="wBF-zv-tNh" secondAttribute="bottom" constant="38" id="YUX-tq-zel"/>
+                            <constraint firstItem="OdJ-c6-AHK" firstAttribute="top" secondItem="ygD-iG-UEc" secondAttribute="bottom" constant="74" id="aQy-0c-2qo"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OdJ-c6-AHK" secondAttribute="trailing" constant="15" id="wxA-5S-VKn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="FrF-LQ-Sd9"/>
+                    <connections>
+                        <outlet property="firsttextView" destination="OdJ-c6-AHK" id="NiJ-0X-Ld1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="428.98550724637687" y="44.866071428571423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Image" width="188" height="200"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

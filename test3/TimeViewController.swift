@@ -8,7 +8,7 @@
 
 
 import UIKit
-import Lottie
+import StoreKit
 
 
 
@@ -17,11 +17,25 @@ import Lottie
 
 
 
-class TimeViewController: UIViewController {
+class TimeViewController: UIViewController, SKPaymentTransactionObserver {
+ 
+
+
     
-    var animationView = AnimationView()
+    let productID500 = "comkobacomtest3.item500"
     
+    let productID1100 = "comkobacomtest3.1100"
     
+    let productID3800 = "comkobacomtest3.3800"
+    
+    let productID10000 = "comkobacomtest3.10000"
+    
+    let productID4900 = "comkobacomtest3.5000"
+    
+ 
+    
+    let productID29400 = "comkobacomtest3.29400"
+
     
   
     @IBOutlet weak var goalDateLabel: UILabel!
@@ -38,11 +52,15 @@ class TimeViewController: UIViewController {
     
     
     
+    @IBOutlet weak var logoImageView: UIImageView!
+    
+    
     
     @IBOutlet weak var resetButton: UIButton!
     
     
-    @IBOutlet weak var setagoalButton: UIButton!
+    @IBOutlet weak var setDayLabel: UILabel!
+    
     
     
    
@@ -70,7 +88,23 @@ class TimeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("おはよう")
         
+        let modefiedBool = UserDefaults.standard.bool(forKey: "modify")
+        
+        if modefiedBool {
+          
+            
+            setStopTime(date: Date())
+            stopTimer()
+            UserDefaults.standard.set(false, forKey: "modify")
+        }
+ 
+
+        
+        
+        
+        SKPaymentQueue.default().add(self)
       
           
         startTime = userdefaults.object(forKey: START_TIME_KEY) as? Date
@@ -100,11 +134,19 @@ class TimeViewController: UIViewController {
    userdef()
    buttonchar()
    goalsetting()
-    
         
+        
+        
+  
     
         
     }
+    
+    
+  
+    
+
+
 
     
     
@@ -133,21 +175,41 @@ class TimeViewController: UIViewController {
          let date = UserDefaults.standard.string(forKey: "date")
           
           let money = UserDefaults.standard.string(forKey: "money")
-          
-          print("date:",date!)
-          print("money:",money!)
-          
-          goalDateLabel.text = date
-          
-          goalMoneyLabel.text = money
             
-     
+            let now = UserDefaults.standard.string(forKey: "now")
+          
+          print("date:",date)
+          print("money:",money)
+            
+            if date == nil || money == nil || now == nil{
+                
+                goalDateLabel.text = ""
+                goalMoneyLabel.text = ""
+                setDayLabel.text = ""
+                
+            } else {
+          
+          goalDateLabel.text = date!
+          
+          goalMoneyLabel.text = money!
+                
+                setDayLabel.text = UserDefaults.standard.string(forKey: "now")
+                
+                UserDefaults.standard.set(goalDateLabel.text, forKey: "date")
+                UserDefaults.standard.set(goalMoneyLabel.text, forKey: "money")
+            
+            }
             
             
         } else  {
             
-            goalDateLabel.text = "未設定"
-            goalMoneyLabel.text = "未設定"
+            goalDateLabel.text = ""
+            goalMoneyLabel.text = ""
+            setDayLabel.text = ""
+            
+            UserDefaults.standard.set(goalDateLabel.text, forKey: "date")
+            UserDefaults.standard.set(goalMoneyLabel.text, forKey: "money")
+            UserDefaults.standard.set(setDayLabel.text, forKey: "now")
         }
         
     }
@@ -159,25 +221,21 @@ class TimeViewController: UIViewController {
     private func buttonchar() {
         
         // ボタンの装飾
-        let rgba = UIColor.systemGray6 // ボタン背景色設定
-              startButton.backgroundColor = rgba                                               // 背景色
+    
+                                                        
               startButton.layer.borderWidth = 0.5                                              // 枠線の幅
-             startButton.layer.borderColor = UIColor.black.cgColor                            // 枠線の色
-             startButton.layer.cornerRadius = 5.0                                             // 角丸のサイズ
+                                       
+             startButton.layer.cornerRadius = 15                                          // 角丸のサイズ
         startButton.setTitleColor(UIColor.white, for: UIControl.State.normal)//タイトルの色
         
       
-              resetButton.backgroundColor = rgba                                               // 背景色
+                                                          
               resetButton.layer.borderWidth = 0.5                                              // 枠線の幅
-             resetButton.layer.borderColor = UIColor.black.cgColor                            // 枠線の色
-             resetButton.layer.cornerRadius = 5.0                                             // 角丸のサイズ
+                                     
+             resetButton.layer.cornerRadius =  15                                           // 角丸のサイズ
         resetButton.setTitleColor(UIColor.white, for: UIControl.State.normal)//タイトルの色
         
-        setagoalButton.backgroundColor = rgba                                               // 背景色
-       setagoalButton.layer.borderWidth = 0.5                                              // 枠線の幅
-       setagoalButton.layer.borderColor = UIColor.black.cgColor                            // 枠線の色
-       setagoalButton.layer.cornerRadius = 5.0                                             // 角丸のサイズ
- setagoalButton.setTitleColor(UIColor.white, for: UIControl.State.normal)//タイトルの色
+    
   
   
   
@@ -213,13 +271,20 @@ class TimeViewController: UIViewController {
   
  
     @IBAction func startAction(_ sender: Any) {
-    
-    
+        
+         
+       
+        
+        if goalStatus() {
+            
+            startButton.isEnabled = false
+        } else {
         
         
         if timerCounting {
             setStopTime(date: Date())
             stopTimer()
+            startTimer()
         }
         else {
             
@@ -233,7 +298,11 @@ class TimeViewController: UIViewController {
             }
             startTimer()
         }
+            
+            performSegue(withIdentifier: "toSetting", sender: nil)
+        }
     }
+          
     
     func calcRestartTime(start: Date, stop: Date) -> Date {
         
@@ -251,8 +320,7 @@ class TimeViewController: UIViewController {
         scheduledTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(refreshValue), userInfo: nil, repeats: true)
         
         setTimerCounting(true)
-        startButton.setTitle("STOP", for: .normal)
-        startButton.setTitleColor(UIColor.red, for: .normal)
+   
         
         
         
@@ -344,17 +412,11 @@ class TimeViewController: UIViewController {
             
         }
         setTimerCounting(false)
-       // startButton.setTitle("START", for: .normal)
-      //  startButton.setTitleColor(UIColor.systemGreen, for: .normal)
+      
     }
     
     
-  //  func resetcounter() {
-        
-  //      let date = Date()
- //       let cal = Calendar.current
-  //      let comp = cal.dateComponents([Calendar.Component.year,Calendar.Component.month], from: date)
-       
+ 
   
         
         
@@ -373,6 +435,11 @@ class TimeViewController: UIViewController {
     
     
     @IBAction func resetAction(_ sender: Any) {
+        
+    
+            
+        if goalStatus() {
+            
         
      
         
@@ -411,7 +478,7 @@ class TimeViewController: UIViewController {
                  
                //目標が設定済みで合った場合でかつ、目標達成した場合
                
-                if dayRecode >= dayGoal {
+                if dayRecode >= dayGoal  {
                     
                     print("目標達成！")
                     
@@ -424,14 +491,17 @@ class TimeViewController: UIViewController {
                     self.timeLabel.text = self.makeTimeString(day: 0, hour: 0, min: 0, sec: 0)
                     self.stopTimer()
                     
-                    self.setStartTime(date: Date())
+              //      self.setStartTime(date: Date())
                  
-                    self.startTimer()
+              //      self.startTimer()
                     
                     let  memo = memoDataModel()
                     
-                    memo.date = "未設定"
-                    memo.context = "未設定"
+                    memo.date = ""
+                    memo.context = ""
+                    
+                    self.setDayLabel.text = ""
+                    UserDefaults.standard.set(self.setDayLabel.text, forKey: "now")
                     
                     UserDefaults.standard.set(memo.date, forKey: "date")
                     UserDefaults.standard.set(memo.context, forKey: "money")
@@ -451,21 +521,29 @@ class TimeViewController: UIViewController {
                     self.timeLabel.text = self.makeTimeString(day: 0, hour: 0, min: 0, sec: 0)
                     self.stopTimer()
                     
-                    self.setStartTime(date: Date())
+               //     self.setStartTime(date: Date())
                  
-                    self.startTimer()
+              //      self.startTimer()
                     
                     let  memo = memoDataModel()
                     
-                    memo.date = "未設定"
-                    memo.context = "未設定"
+                    memo.date = ""
+                    memo.context = ""
+                    
+                    self.setDayLabel.text = ""
+                    UserDefaults.standard.set(self.setDayLabel.text, forKey: "now")
                     
                     UserDefaults.standard.set(memo.date, forKey: "date")
                     UserDefaults.standard.set(memo.context, forKey: "money")
                     UserDefaults.standard.set(false, forKey: "bool")
                     //ここに課金実装
-                    
+                    self.premiumadd()
                     print("目標未達成")
+                    
+                    self.performSegue(withIdentifier: "toNext", sender: nil)
+                    
+                    UserDefaults.standard.set(false, forKey: "timeswitch")
+
                 }
                 
            
@@ -473,6 +551,8 @@ class TimeViewController: UIViewController {
             } else {
                 
                 //目標が未設定だった場合
+                
+                UserDefaults.standard.set(self.timeLabel.text, forKey: "time")
                 self.performSegue(withIdentifier: "toNext", sender: nil)
                 
                     self.setStopTime(date: nil)
@@ -480,16 +560,16 @@ class TimeViewController: UIViewController {
                     self.timeLabel.text = self.makeTimeString(day: 0, hour: 0, min: 0, sec: 0)
                     self.stopTimer()
                     
-                    self.setStartTime(date: Date())
+              //      self.setStartTime(date: Date())
                  
-                    self.startTimer()
+                  //  self.startTimer()
                 UserDefaults.standard.set(false, forKey: "bool")
               
                 
                 
-                
+                print("era")
              
-                
+                UserDefaults.standard.set(false, forKey: "timeswitch")
                 
                 
             }
@@ -520,31 +600,130 @@ class TimeViewController: UIViewController {
         //実際にAlertを表示する
         
         present(alert, animated: true, completion: nil)
+            
+        
+        } else {
+            
+            resetButton.isEnabled = false
+        }
+       
         
     
+    }
+    
+    
+    
+    func premiumadd() {
+        
+        if SKPaymentQueue.canMakePayments() {
+            
+            
+            let paymentRequest = SKMutablePayment()
+                     
+                       if goalMoneyLabel.text == "500円" {
+                      
+                           paymentRequest.productIdentifier = productID500
+                           
+                           SKPaymentQueue.default().add(paymentRequest)
+                           
+                           print("500")
+                         
+                       } else if  goalMoneyLabel.text == "1100円" {
+                         
+                            paymentRequest.productIdentifier = productID1100
+                           
+                          SKPaymentQueue.default().add(paymentRequest)
+                       } else if goalMoneyLabel.text == "3800円" {
+                           
+                           
+                           paymentRequest.productIdentifier = productID3800
+                           
+                           SKPaymentQueue.default().add(paymentRequest)
+                       }
+            
+            
+                         else if goalMoneyLabel.text == "4900円" {
+                         
+                            paymentRequest.productIdentifier = productID4900
+                           
+                           SKPaymentQueue.default().add(paymentRequest)
+                       } else if goalMoneyLabel.text == "10000円" {
+                         
+                           paymentRequest.productIdentifier = productID10000
+                           
+                           SKPaymentQueue.default().add(paymentRequest)
+                       } else if goalMoneyLabel.text == "29400円" {
+                         
+                            paymentRequest.productIdentifier = productID29400
+                           
+                           SKPaymentQueue.default().add(paymentRequest)
+                         
+                       }
+                     
+                     
+                 
+
+         
+            
+        } else {
+            
+            //購入できません
+            print("購入できません")
+        }
+        
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        
+        for transaction in transactions {
+            
+            if transaction.transactionState == .purchased {
+                
+             //Userpayment successful
+                print("Transaction successful!")
+                
+                // Get receipt if available
+                    if let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
+                    FileManager.default.fileExists(atPath: appStoreReceiptURL.path) {
+
+                    do {
+                        let receiptData = try Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
+                        print(receiptData)
+
+                        let receiptString = receiptData.base64EncodedString(options: [])
+
+                        // Read ReceiptData
+                    }
+                    catch { print("Couldn't read receipt data with error: " + error.localizedDescription) }
+                }
+                
+                SKPaymentQueue.default().finishTransaction(transaction)
+            
+            } else if transaction.transactionState == .failed {
+                
+                //payment failed
+                print("Transaction failed!")
+                
+                if let error = transaction.error {
+                    
+                    let errorDescription = error.localizedDescription
+                    print("Transaction failed due to error: \(errorDescription)")
+                }
+                
+                SKPaymentQueue.default().finishTransaction(transaction)
+            }
+        }
+        
     }
     
     
     
     @IBAction func setagoal(_ sender: Any) {
         
-        if goalStatus() {
-            
-            performSegue(withIdentifier: "toSetting", sender: nil)
-            
-            setagoalButton.isEnabled = false
-           
-           
-            
-        } else {
-            
-            performSegue(withIdentifier: "toSetting", sender: nil)
-        }
-       
+
+    
+    
     }
-    
-    
-    
     
     
     
@@ -568,11 +747,14 @@ class TimeViewController: UIViewController {
     }
     
     
-    
-    
-    
-    
-
 
 
 }
+
+extension UIColor {
+    static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor{
+        return self.init(red: red / 255, green: green / 255, blue: blue / 155, alpha: 1)
+    }
+}
+
+

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Third Cell View Controller-->
+        <scene sceneID="FhN-y9-Vsg">
+            <objects>
+                <viewController storyboardIdentifier="thirdCellViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xhm-mo-Ald" customClass="thirdCellViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C4H-hX-kj5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有効活用しよう！！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD3-Xg-mIO">
+                                <rect key="frame" x="187" y="79" width="166" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="166" id="LfU-hC-E1k"/>
+                                    <constraint firstAttribute="height" constant="45" id="WTW-sc-bTy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dmH-UC-Tuh">
+                                <rect key="frame" x="15" y="163" width="384" height="651"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">①　リセット時に、なぜリセットしたのかを徹底的に追求しよう。
+このアプリのDataにはリセットした際の日時、リセット時間、そのときのコメントが閲覧できるようになっています。
+この機能を活用して、自分がその習慣に手を染めてしまう際の傾向や癖を見抜き、対策を立てましょう。
+要注意チェックポイントは、もちろんどんな習慣を断ちたいかによりますが、およそ同じような時刻にリセットしてないか、睡眠の質が悪い時にリセットしてないか（理性のコントロールが難しくなるため）、スマホを触りすぎていないか、等に収束することが多いです。
+
+②　メモカレンダー機能
+このような癖や傾向を見抜き、対策を立てることに役立つ、もう一つの機能がメモカレンダー機能です。①で見出したチェックポイントを基準に普段からそれらに対してしっかり対策がとれているか確認をしていただくと良い結果に結びつきやすくなります。
+
+③　設定金額、設定日時
+
+最初は無理のない範囲で、徐々に大きくしていくことをお勧めしてます。
+自分に合ったペースで無理せず活用してください。
+もちろん、無料でのご利用も大歓迎です。</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="DHZ-R3-aJk">
+                                <rect key="frame" x="42" y="64" width="100" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="T3m-wh-gGb"/>
+                                    <constraint firstAttribute="height" constant="75" id="h3v-DS-iTc"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3Rc-oK-eXn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3Rc-oK-eXn" firstAttribute="trailing" secondItem="dmH-UC-Tuh" secondAttribute="trailing" constant="15" id="AGH-UJ-qI6"/>
+                            <constraint firstItem="DHZ-R3-aJk" firstAttribute="leading" secondItem="3Rc-oK-eXn" secondAttribute="leading" constant="42" id="C5s-ib-X18"/>
+                            <constraint firstItem="dmH-UC-Tuh" firstAttribute="leading" secondItem="3Rc-oK-eXn" secondAttribute="leading" constant="15" id="EYR-3q-3GH"/>
+                            <constraint firstItem="DHZ-R3-aJk" firstAttribute="top" secondItem="3Rc-oK-eXn" secondAttribute="top" constant="20" id="F2b-uQ-C0Q"/>
+                            <constraint firstItem="fD3-Xg-mIO" firstAttribute="top" secondItem="3Rc-oK-eXn" secondAttribute="top" constant="35" id="PTE-n0-Mfv"/>
+                            <constraint firstItem="3Rc-oK-eXn" firstAttribute="bottom" secondItem="dmH-UC-Tuh" secondAttribute="bottom" constant="48" id="ba5-FR-5Nj"/>
+                            <constraint firstItem="dmH-UC-Tuh" firstAttribute="top" secondItem="DHZ-R3-aJk" secondAttribute="bottom" constant="24" id="ebZ-ap-gs1"/>
+                            <constraint firstItem="fD3-Xg-mIO" firstAttribute="leading" secondItem="DHZ-R3-aJk" secondAttribute="trailing" constant="45" id="mQ4-oV-nJ0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZiD-jU-Ope"/>
+                    <connections>
+                        <outlet property="thirdTextView" destination="dmH-UC-Tuh" id="uNM-ue-dnc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oci-ue-fCY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="428.98550724637687" y="44.866071428571423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Image" width="188" height="200"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

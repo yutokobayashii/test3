@@ -39,12 +39,14 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    
        
         memoTextView.isUserInteractionEnabled = true
         
         memoTextView.isEditable = false
         
-        memoButton.layer.cornerRadius = 30
+        memoButton.layer.cornerRadius = 27.5
    
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
@@ -52,8 +54,9 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-  
- 
+    
+    
+    
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

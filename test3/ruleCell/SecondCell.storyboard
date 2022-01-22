@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Second Cell View Controller-->
+        <scene sceneID="eO4-Lg-Ykf">
+            <objects>
+                <viewController storyboardIdentifier="secondCellViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GHE-f5-U2n" customClass="secondCellViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a1J-R3-VA0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gLb-FG-xsp">
+                                <rect key="frame" x="15" y="244" width="384" height="578"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">私、来月までに体重１キロ落とす！もし無理だったらあなたにご飯奢っちゃう！
+
+もし次のテストで合格点取れなかったらお前にジュース奢ってやるよ。
+
+などなど、人生で一度くらいこのような賭け事を友人としたことはあるのではないでしょうか？
+意外とこの手のプレッシャーの掛け方は有効だったりするのです。
+これをオンラインで実現したのがこのアプリになります。
+ライトなユーザーは少額を寄付感覚でセットしてみてもいいですし、絶対にやめたい習慣があるという方はガッツリ大金をかけて自分にプレッシャーをかけるのもいいです。
+もちろん、すべての機能を無料でご利用頂くこともできます。
+自分に合ったアプリの使い方を模索してみてください。
+また最初は無理のない日数と金額を設定することをお勧めしています。
+</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユルボを知ろう！！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwO-dd-fhq">
+                                <rect key="frame" x="205" y="111" width="179" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="179" id="MLU-Ys-0iR"/>
+                                    <constraint firstAttribute="height" constant="45" id="awk-jA-WOl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="w6v-rb-Emf">
+                                <rect key="frame" x="40" y="83" width="123" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="123" id="E3x-y7-huf"/>
+                                    <constraint firstAttribute="height" constant="101" id="ZrI-k5-e6X"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="K3I-Mk-FsA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vwO-dd-fhq" firstAttribute="top" secondItem="K3I-Mk-FsA" secondAttribute="top" constant="67" id="3cH-MR-ay0"/>
+                            <constraint firstItem="w6v-rb-Emf" firstAttribute="top" secondItem="K3I-Mk-FsA" secondAttribute="top" constant="39" id="4rf-1N-5ju"/>
+                            <constraint firstItem="K3I-Mk-FsA" firstAttribute="trailing" secondItem="gLb-FG-xsp" secondAttribute="trailing" constant="15" id="Cep-al-dJg"/>
+                            <constraint firstItem="vwO-dd-fhq" firstAttribute="leading" secondItem="w6v-rb-Emf" secondAttribute="trailing" constant="42" id="GVt-tx-Dh2"/>
+                            <constraint firstItem="gLb-FG-xsp" firstAttribute="leading" secondItem="K3I-Mk-FsA" secondAttribute="leading" constant="15" id="TIi-2N-Rdt"/>
+                            <constraint firstItem="w6v-rb-Emf" firstAttribute="leading" secondItem="K3I-Mk-FsA" secondAttribute="leading" constant="40" id="VMT-fm-4qX"/>
+                            <constraint firstItem="gLb-FG-xsp" firstAttribute="top" secondItem="w6v-rb-Emf" secondAttribute="bottom" constant="60" id="fVR-Zo-ALf"/>
+                            <constraint firstItem="K3I-Mk-FsA" firstAttribute="bottom" secondItem="gLb-FG-xsp" secondAttribute="bottom" constant="40" id="z88-zB-yUm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zYJ-ma-jdM"/>
+                    <connections>
+                        <outlet property="secondTextView" destination="gLb-FG-xsp" id="icR-4A-vxd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A4h-Ah-iHi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="428.98550724637687" y="44.866071428571423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Image" width="188" height="200"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
